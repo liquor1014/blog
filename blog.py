@@ -31,4 +31,11 @@ def home():
     '''
     return render_template('home.html')
 
+@app.route('/blogs',methods=['GET'])
+def list():
+    blogs = Blog.query.all() #查询博文全部列表
+    return  render_template('list.html',blogs = blogs)
+
+
+
 app.run()
